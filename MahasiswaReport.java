@@ -23,12 +23,12 @@ public class MahasiswaReport{
     private String nilai2;
 
     MahasiswaReport(String mk1, String mk2, int sks1, int sks2, String nilai1, String nilai2) {
-        this.mk1 = mk1;
-        this.mk1 = mk2;
+        this.mk1 = "PBO 1";
+        this.mk2 = "PBO 2";
         this.sks1 = sks1;
         this.sks2 = sks2;
-        this.nilai1 = nilai1;
-        this.nilai2 = nilai2;
+        this.nilai1 = "A";
+        this.nilai2 = "A";
     }
     MahasiswaReport(MahasiswaReport sp) {
         
@@ -77,8 +77,8 @@ public class MahasiswaReport{
         
         return (ConvertNilaiMutu(nilai1)*sks1+ConvertNilaiMutu(nilai2)*sks2)/(sks1+sks2);
     }
-    public float ConvertNilaiMutu(String HurufMutu){
-        float mutu = 0;
+    public int ConvertNilaiMutu(String HurufMutu){
+        int mutu = 0;
         /*
             Huruf mutu A : nilai mutu 4
             Huruf mutu B : nilai mutu 3
@@ -89,19 +89,19 @@ public class MahasiswaReport{
       
         switch(HurufMutu){
             case "A":
-                mutu = (float)A;
+                mutu = (int)A;
                 break;
             case "B":
-                mutu = (float)B;
+                mutu = (int)B;
                 break;
             case "C":
-                mutu = (float)C;
+                mutu = (int)C;
                 break;
             case "D":
-                mutu = (float)D;
+                mutu = (int)D;
                 break;
             case "E":
-                mutu = (float)E;
+                mutu = (int)E;
                 break;
         }
         return mutu;
@@ -111,12 +111,14 @@ public class MahasiswaReport{
         /*
             Mengembalikan informasi laporan nilai mahasiswa
          */
-        return "\n Information from student raport\n "+
+        return "\n Information from student raport\n"+
             "=================================\n"+
         "\nMK1       \t: "+this.mk1+
         "\nSKS1      \t: "+this.sks1+
+        "\nNILAI 1   \t: "+this.ConvertNilaiMutu(nilai1)+
         "\nMK2       \t: "+this.mk2+
         "\nSKS2      \t: "+this.sks2+
+        "\nNILAI 1   \t: "+this.ConvertNilaiMutu(nilai2)+
         "\nNR        \t: "+HitungNR();
     }
 }
